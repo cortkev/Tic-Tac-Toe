@@ -49,6 +49,10 @@ html, body {
 .box{
     border: 2px solid red;
     border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
 }
 
 .box:hover{
