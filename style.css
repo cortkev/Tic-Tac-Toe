@@ -21,18 +21,17 @@ html, body {
     min-height: 10vh;
     white-space: pre-line;
 }
-.game-board{
-    display: grid;
+.player-turn{
+    display: flex;
     padding: 2rem;
     font-size: 5rem;
-    justify-content: center;
+    justify-content: space-around;
     min-height: 10vh;
     width: 100vw;
 }
 .container{
     display: flex;
     flex-direction: column;
-    border: 2px solid orange;
     min-height: 80vh;
     align-items: center;
     padding: 100px;
@@ -42,7 +41,6 @@ html, body {
     grid-template-columns: repeat(3, minmax(100px, 1fr) );
     grid-template-rows: repeat(3, minmax(100px, 1fr) );
     gap: 12px;
-    border: 1px solid blue;
     height: 600px;
     width: 600px;
 }
@@ -59,3 +57,49 @@ html, body {
     background-color: rgb(36, 34, 34);
     cursor: pointer;
 }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 50vh; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: rgba(0, 0, 0, .6);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid red;
+    width: 80%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .modal-text{
+    font-size: 3rem;
+  }
+
+  .restart-button{
+    width: 100px;
+    height: 30px;
+    background-color: blue;
+    border-style: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
