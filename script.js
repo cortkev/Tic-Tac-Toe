@@ -26,12 +26,12 @@ const Player = (name, mark) => {
 
 //game module
 const Game = (() => {
-    const player1 = Player('Kevin', 'X');
-    const player2 = Player('Ivan', 'O');
+    const player1 = Player('Player1', 'X');
+    const player2 = Player('Player2', 'O');
     let currentPlayer = player1;
     let box = document.querySelectorAll(".box");
     let gameOver = false;
-    moveNum = 0;
+    let moveNum = 0;
     let modal = document.getElementById("myModal");
     let modalText = document.querySelector(".modal-text");
     let player1Turn = document.querySelector("#player1");
@@ -45,7 +45,7 @@ const Game = (() => {
     player1Turn.style.color = 'blue';
 
     
-
+    //winning patterns
     const win = [
         [0,1,2],
         [3,4,5],
@@ -60,11 +60,10 @@ const Game = (() => {
     let restartButton = document.querySelector(".restart-button");
     restartButton.addEventListener("click", reset);
     function reset(){
+        //reset board array
         Gameboard.gameBoard = [];
-        // for (i = 0; i < 9; i++){
-        //     Gameboard.gameBoard.push('');
-        // }
         modal.style.display = "none";
+        //add empty string
         box.forEach((box, index) => {
             box.innerHTML = '';
             Gameboard.gameBoard.push('');
@@ -80,6 +79,7 @@ const Game = (() => {
     
 
     const winner = () => {
+        ///check if any players marks match winning patterns
         win.forEach((item, index) => {
             if(Gameboard.gameBoard[item[0]] === currentPlayer.mark && 
                 Gameboard.gameBoard[item[1]] === currentPlayer.mark && 
@@ -90,6 +90,7 @@ const Game = (() => {
                     gameOver = true;
                     
                 }
+            //tie game
             else if(moveNum === 9){
                 modal.style.display = "block";
                 modalText.innerHTML = "Tie Game!";
@@ -100,7 +101,7 @@ const Game = (() => {
 
     
 
-    // player1Turn.style.color = 'blue';
+    //switch players after every turn
     const switchPlayer = () => {
         currentPlayer = currentPlayer === player1 ? player2 : player1;
         if(currentPlayer.name === player1.name){
@@ -112,7 +113,7 @@ const Game = (() => {
             player1Turn.style.color = 'white';
         }
     }
-
+    //player move in gameboard
     const move = (index) => {
         if(Gameboard.gameBoard[index] === '' && gameOver === false){
             Gameboard.gameBoard[index] = currentPlayer.mark;
@@ -138,5 +139,3 @@ const Game = (() => {
      }
 
 })();
-
-//gamer.reset();
