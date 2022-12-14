@@ -26,26 +26,45 @@ const Player = (name, mark) => {
 
 //game module
 const Game = (() => {
-    const player1 = Player('Player1', 'X');
-    const player2 = Player('Player2', 'O');
+
+    const player1 = Player('', 'X');
+    const player2 = Player('', 'O');
     let currentPlayer = player1;
+    
     let box = document.querySelectorAll(".box");
     let gameOver = false;
     let moveNum = 0;
     let modal = document.getElementById("myModal");
+    let nameModal = document.querySelector(".start-modal");
     let modalText = document.querySelector(".modal-text");
     let player1Turn = document.querySelector("#player1");
     let player2Turn = document.querySelector("#player2");
 
+    let startButton = document.querySelector(".start-button");
+    startButton.addEventListener("click", start);
+    function start(){
 
-    player1Turn.innerHTML = player1.name;
-    player2Turn.innerHTML = player2.name;
+        //get players name from textbox and set them as the names
+        let p1Textbox = document.querySelector("#p1-input");
+        let p1Name = p1Textbox.value;
+        player1.name = p1Name;
+
+        let p2Textbox = document.querySelector("#p2-input");
+        let p2Name = p2Textbox.value;
+        player2.name = p2Name;
+
+        //display names
+        player1Turn.innerHTML = player1.name;
+        player2Turn.innerHTML = player2.name;
+        //hide modal
+        nameModal.style.display = "none";
+    }
 
     console.log(currentPlayer);
     player1Turn.style.color = 'blue';
 
     
-    //winning patterns
+    //possible winning patterns
     const win = [
         [0,1,2],
         [3,4,5],

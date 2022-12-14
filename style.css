@@ -92,14 +92,71 @@ html, body {
     font-size: 3rem;
   }
 
-  .restart-button{
+button{
     width: 100px;
     height: 30px;
-    background-color: blue;
-    border-style: none;
-    border-radius: 10px;
-    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid blue;
+    animation: blinker 1.5s linear infinite;
+    /* border-style: none; */
+    border-radius: 7px;
+    color: blue;
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
   }
+
+  @keyframes blinker {
+    50% {
+      border-color: transparent;
+      color: transparent;
+    }
+  }
+
+.start-modal-content {
+    background-color: rgba(0, 0, 0, .6);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid red;
+    border-radius: 7px;
+    width: 80%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+
+  }
+
+  /* start modal */
+  .start-modal{
+    display: flex; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+  }
+
+  .player-names{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    font-size: 2rem;
+  }
+input[type="text"]{
+    height: 30px;
+    padding-left: .8rem;
+    position: relative;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+    border: 1px solid red;
+    border-radius: 7px;
+    color: blue;
+    font-weight: bold;
+    
+}
